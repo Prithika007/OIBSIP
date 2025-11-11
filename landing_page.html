@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>TripNex | Explore the World</title>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+  }
+
+  body {
+    background-color: #e7f4ff;
+    color: #333;
+  }
+
+  header {
+    width: 100%;
+    background: #ffffffcc;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 60px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    position: fixed;
+    top: 0;
+    z-index: 10;
+  }
+
+  header h1 {
+    font-size: 28px;
+    color: #ebeff1;
+    font-weight: 700;
+  }
+
+  nav ul {
+    display: flex;
+    list-style: none;
+  }
+
+  nav ul li {
+    margin: 0 15px;
+  }
+
+  nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: 0.3s;
+  }
+
+  nav ul li a:hover {
+    color: #fbfbfb;
+  }
+
+  .hero {
+    background: url('https://images.pexels.com/photos/615060/pexels-photo-615060.jpeg') center/cover no-repeat;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    color: rgb(125, 157, 243);
+  }
+
+  .hero h2 {
+    font-size: 48px;
+    font-weight: 700;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.4);
+  }
+
+  .hero p {
+    font-size: 18px;
+    color: #f0f8ff;
+    margin-bottom: 60px; /* moves search bar lower */
+  }
+
+  /* SEARCH BOX STYLING */
+  .search-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  background: #ffffff;
+  padding: 20px 30px;
+  border-radius: 50px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+  width: 750px;
+  max-width: 95%;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+
+  .search-box input,
+.search-box select {
+  padding: 14px 20px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 30px;
+  background: #fff;
+  flex: 1;
+  outline: none;
+  color: #333;
+  transition: 0.3s;
+}
+
+
+  .search-box input:focus,
+  .search-box select:focus {
+    border-color: #0077cc;
+    box-shadow: 0 0 8px rgba(0, 119, 204, 0.3);
+  }
+
+  .search-box button {
+    background-color: #0077cc;
+    color: #fff;
+    border: none;
+    padding: 14px 25px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: 0.3s;
+  }
+
+  .search-box button:hover {
+    background-color: #005fa3;
+  }
+
+  section {
+    padding: 80px 60px;
+    text-align: center;
+  }
+
+  section h2 {
+    font-size: 36px;
+    color: #0077cc;
+    margin-bottom: 40px;
+  }
+
+  .destinations {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+  }
+
+  .card {
+    background: white;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+  }
+
+  .card img {
+    width: 100%;
+    height: 180px;
+    border-radius: 12px;
+    object-fit: cover;
+    margin-bottom: 20px;
+  }
+
+  footer {
+    background: #0077cc;
+    color: white;
+    text-align: center;
+    padding: 30px 20px;
+  }
+
+  footer p {
+    font-size: 14px;
+  }
+  /* SERVICES SECTION */
+.services {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin-top: 40px;
+}
+
+.services .card {
+  width: 300px;
+  height: 300px; /* makes each box square */
+  border-radius: 15px;
+  padding: 20px;
+  background: #fff;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.services .card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+.services .card img {
+  width: 100%;
+  height: 150px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.services .card h3 {
+  color: #0077cc;
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+.services .card p {
+  font-size: 14px;
+  color: #555;
+}
+
+
+  @media (max-width: 768px) {
+    header {
+      flex-direction: column;
+      padding: 15px;
+    }
+    nav ul {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .search-box {
+      flex-direction: column;
+      align-items: center;
+    }
+    .search-box input {
+      width: 100%;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>TripNex</h1>
+  <nav>
+  <ul>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#destinations">Destinations</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+</header>
+
+<!-- HERO SECTION -->
+<section class="hero" id="home">
+  <h2>Explore the World with TripNex</h2>
+  <p>Your dream destinations are just a click away</p>
+
+  <div class="search-box">
+    <input type="text" placeholder="Where to?">
+    <input type="date">
+    <select>
+      <option value="">Travelers</option>
+      <option value="1">1 Traveler</option>
+      <option value="2">2 Travelers</option>
+      <option value="3">3 Travelers</option>
+      <option value="4">4+ Travelers</option>
+    </select>
+    <button>Search</button>
+  </div>
+</section>
+<!-- SERVICES SECTION -->
+<section id="services">
+  <h2>Our Services</h2>
+  <div class="services">
+    <div class="card">
+      <img src="https://images.pexels.com/photos/3601426/pexels-photo-3601426.jpeg" alt="">
+      <h3>Custom Tour Packages</h3>
+      <p>We create tailor-made travel experiences that suit your budget and dreams.</p>
+    </div>
+    <div class="card">
+      <img src="https://images.pexels.com/photos/104826/aircraft-holiday-sun-tourism-104826.jpeg" alt="">
+      <h3>Flight & Hotel Booking</h3>
+      <p>Get the best deals for flights, hotels, and complete travel arrangements.</p>
+    </div>
+    <div class="card">
+      <img src="https://images.pexels.com/photos/210012/pexels-photo-210012.jpeg" alt="">
+      <h3>Guided Adventures</h3>
+      <p>Join our guided tours to explore hidden gems with local experts.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- DESTINATIONS SECTION -->
+<section id="destinations">
+  <h2>Popular Destinations</h2>
+  <div class="destinations">
+
+    <!-- Row 1 -->
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=900&q=80" alt="Bali, Indonesia">
+      <h3>Bali</h3>
+    </div>
+    <div class="card">
+      <img src="https://images.pexels.com/photos/2082103/pexels-photo-2082103.jpeg" alt="Paris, France">
+      <h3>Paris</h3>
+    </div>
+    <div class="card">
+      <img src="https://images.pexels.com/photos/460672/pexels-photo-460672.jpeg" alt="London, United Kingdom">
+      <h3>London</h3>
+    </div>
+
+    <!-- Row 2 -->
+    <div class="card">
+      <img src="https://images.pexels.com/photos/1320686/pexels-photo-1320686.jpeg" alt="Maldives">
+      <h3>Maldives</h3>
+    </div>
+    <div class="card">
+      <img src="https://images.pexels.com/photos/1440476/pexels-photo-1440476.jpeg" alt="Japan">
+      <h3>Japan</h3>
+    </div>
+    <div class="card">
+      <img src="https://images.pexels.com/photos/1108807/pexels-photo-1108807.jpeg" alt="Switzerland">
+      <h3>Switzerland</h3>
+    </div>
+    <div class="card">
+      <img src="https://images.pexels.com/photos/535431/pexels-photo-535431.jpeg" alt="Africa">
+      <h3>Africa</h3>
+    </div>
+
+    <!-- Row 3 -->
+    <div class="card">
+      <img src="https://images.pexels.com/photos/2848492/pexels-photo-2848492.jpeg" alt="South Korea">
+      <h3>South Korea</h3>
+    </div>
+    <div class="card">
+      <img src="https://images.pexels.com/photos/1603650/pexels-photo-1603650.jpeg" alt="India">
+      <h3>India</h3>
+    </div>
+    <div class="card">
+      <img src="https://images.pexels.com/photos/995765/pexels-photo-995765.jpeg" alt="Australia">
+      <h3>Australia</h3>
+    </div>
+
+  </div>
+</section>
+<!-- ABOUT SECTION -->
+<section id="about">
+  <h2>About Us</h2>
+  <p style="font-size: 20px; color: #555; max-width: 800px; margin: 0 auto;">
+    ✈️ “At <strong>TripNex</strong>, From dreams to destinations, we make it happen” 🌍
+  </p>
+</section>
+
+<!-- CONTACT SECTION -->
+<section id="contact">
+  <h2>Contact Us</h2>
+  <p style="font-size: 18px; color: #333; margin-bottom: 10px;">We’d love to hear from you!</p>
+  <p style="font-size: 18px; color: #0077cc; font-weight: 600;"> Email: <a href="mailto:tripnex@gmail.com" style="color:#0077cc; text-decoration:none;">tripnex@gmail.com</a></p>
+</section>
+
+<footer>
+  <p>Explore the World with Us @ TripNex</p>
+</footer>
+
+</body>
+</html>

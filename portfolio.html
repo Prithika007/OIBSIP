@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Portfolio</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #a8edea, #fed6e3);
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      text-align: center;
+      padding: 40px 20px;
+      background-color: rgba(255, 255, 255, 0.8);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    header img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #fff;
+    }
+
+    header h1 {
+      margin-top: 15px;
+      font-size: 28px;
+      color: #222;
+    }
+
+    header p {
+      color: #555;
+    }
+
+    section {
+      max-width: 800px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      border-bottom: 3px solid #ff9a9e;
+      padding-bottom: 8px;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    ul li {
+      margin-bottom: 8px;
+    }
+
+    .contact a {
+      color: #050001;
+      text-decoration: none;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      background-color: #fff;
+      color: #777;
+      margin-top: 40px;
+      font-size: 14px;
+    }
+    .project-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.project-box {
+  background: #d1fcff;
+  border: 2px solid lch(3.9% 0.33 199.61);
+  border-radius: 12px;
+  padding: 20px;
+  width: 250px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.project-box h3 {
+  color: #141617;
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.project-box p {
+  color: #444;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Prithika P</h1>
+    <p>A passionate Computer Science Engineering student</p>
+  </header>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p>
+      Hello ! I am Prithika, a creative and enthusiastic learner with a growing passion for web development.I enjoy learning new technologies, improving my skills, and working on projects that make a difference.
+I believe in continuous growth, teamwork, and using creativity to find smart solutions.
+    </p>
+  </section>
+
+  <section id="education">
+    <h2>Education</h2>
+    <ul>
+      <li><strong>BE Computer Science</strong> -  Sri Sairam Institute of Technology (2024–2028)</li>
+    </ul>
+  </section>
+
+  <section id="languages">
+    <h2>Languages</h2>
+    <ul>
+      <li><strong>Programming:</strong> C, Python, HTML, CSS, JavaScript</li>
+    </ul>
+  </section>
+  <section id="projects">
+  <h2>Projects</h2>
+  <div class="project-container">
+    <div class="project-box">
+      <h3>Personal Portfolio Website</h3>
+      <p>Created a clean and responsive personal portfolio using HTML and CSS to showcase my profile, skills, and projects.</p>
+    </div>
+
+    <div class="project-box">
+      <h3>Temperature Converter Web App</h3>
+      <p>Built a web application using HTML, CSS, and JavaScript to convert temperatures between Celsius, Fahrenheit, and Kelvin.</p>
+    </div>
+
+    <div class="project-box">
+      <h3>Travel Agency Landing Page</h3>
+      <p>Designed an attractive and user-friendly landing page for a travel agency using HTML and CSS, featuring destinations , Packages , Explore highlights.</p>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <h2>Contact</h2>
+  <p>Email: <a href="mailto:sit24cs099@sairamtap.edu.in">sit24cs099@sairamtap.edu.in</a></p>
+  <p>LinkedIn: <a href="https://www.linkedin.com/in/prithika-p-aa7323332/" target="_blank">linkedin.com/in/prithika-p</a></p>
+  <p>GitHub: <a href="https://github.com/Prithika007" target="_blank">github.com/Prithika007</a></p>
+</section>
+
+
+  <footer>
+    &copy; Created by Prithika P 
+  </footer>
+</body>
+</html>
